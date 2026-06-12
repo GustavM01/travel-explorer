@@ -1,0 +1,77 @@
+.hero-card-container {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  grid-column: 1 / span 3;
+}
+
+.hero-card-featured-text {
+  background: hsl(from var(--clr-primary-medium) h s l / 0.8);
+  color: var(--clr-primary-light);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+}
+
+.hero-card-container h1 {
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-3xl);
+}
+
+.hero-card-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    var(--clr-card-light),
+    var(--clr-card)
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0) 60%
+  );
+}
+
+.hero-card-bg-img {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: 50% 50%;
+  z-index: -20;
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-card-coutry-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-card-coutry-section h2 {
+  font-weight: var(--fw-regular);
+}
+
+.hero-card-flag {
+  max-width: 2.5rem;
+  object-fit: cover;
+}
+
+.hero-card-info {
+  max-width: 300px;
+  color: var(--clr-text-muted);
+  margin: 0.25rem 0 1rem;
+}
