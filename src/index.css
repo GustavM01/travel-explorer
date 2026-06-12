@@ -77,12 +77,12 @@ p {
   --clr-card: hsl(220 42% 14%);
   --clr-card-light: hsl(213, 75%, 11%);
 
-  --clr-card-bg-start: hsl(223 42% 16%);
-  --clr-card-bg-end: hsl(220 38% 12%);
+  --clr-card-bg-start: hsl(214, 47%, 10%);
+  --clr-card-bg-end: hsl(216, 55%, 10%);
 
   /* Text */
   --clr-text-primary: hsl(210 40% 98%);
-  --clr-text-secondary: hsl(214 32% 91%);
+  --clr-text-secondary: hsl(244, 6%, 80%);
   --clr-text-muted: hsl(215 20% 65%);
 
   /* Primary color */
@@ -93,10 +93,8 @@ p {
 
   --clr-primary-hover: hsl(220, 60%, 49%);
 
-  /* Status */
-  --clr-success: hsl(142 71% 45%);
-  --clr-warning: hsl(38 92% 50%);
-  --clr-danger: hsl(0 84% 60%);
+  --clr-warm: hsl(19, 100%, 60%);
+  --clr-cold: hsl(217, 83%, 57%);
 
   /* Borders */
   --clr-border: hsla(240, 2%, 61%, 0.2);
@@ -116,7 +114,8 @@ p {
   --fs-lg: 1.125rem;
   --fs-xl: 1.5rem;
   --fs-2xl: 2rem;
-  --fs-3xl: 3rem;
+  --fs-3xl: 2.5rem;
+  --fs-4xl: 3rem;
 
   --fw-small: 300;
   --fw-regular: 400;

@@ -1,10 +1,14 @@
 import React from "react";
 import "./InfoCard.css";
 
-function InfoCard({ label }) {
+function InfoCard({ icon, label, children }) {
   return (
-    <div>
-      <h2>{label}</h2>
+    <div className="info-card-container">
+      <div className="info-card-header">
+        {icon}
+        <p className="info-card-label">{label}</p>
+      </div>
+      {children}
     </div>
   );
 }

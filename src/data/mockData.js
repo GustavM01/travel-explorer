@@ -41,7 +41,13 @@ export const mockDestination = {
   weather: {
     temperature: 21,
 
+    highest: 24,
+
+    lowest: 17,
+
     feelsLike: 19,
+
+    weatherCode: 2,
 
     condition: "Partly Cloudy",
 
