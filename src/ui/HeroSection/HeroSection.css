@@ -7,9 +7,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 0.75rem;
   grid-column: 1 / span 4;
   grid-row: 1 / span 3;
+}
+
+.hero-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero-card-content button {
+  width: fit-content;
 }
 
 .hero-card-featured-text {
@@ -33,8 +44,8 @@
   z-index: -1;
   background: linear-gradient(
     to bottom,
-    var(--clr-card-light),
-    var(--clr-card)
+    var(--clr-card-bg-start),
+    var(--clr-card-bg-end)
   );
 
   mask-image: linear-gradient(
@@ -62,7 +73,14 @@
   gap: 1rem;
 }
 
-.hero-card-coutry-section h2 {
+.hero-card-capital-section {
+  padding-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-card-container h2 {
   font-weight: var(--fw-regular);
 }
 
