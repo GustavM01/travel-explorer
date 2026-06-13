@@ -1,0 +1,7 @@
+.saved-countries-grid {
+  display: grid;
+  height: 100%;
+  margin-top: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}

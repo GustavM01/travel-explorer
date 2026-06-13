@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import "./App.css";
 import Home from "./pages/Home";
 import SideNav from "./ui/SideNav/SideNav";
+import Saved from "./pages/Saved";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,6 +15,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/saved" element={<Saved />} />
           </Routes>
         </main>
       </div>

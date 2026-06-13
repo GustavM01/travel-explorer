@@ -5,7 +5,7 @@ import { Search } from "lucide-react";
 function SearchBar() {
   return (
     <label htmlFor="search-bar" className="search-container">
-      <Search />
+      <Search size={20} />
       <input placeholder="Search for a country" type="text" id="search-bar" />
     </label>
   );
