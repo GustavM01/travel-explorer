@@ -16,9 +16,21 @@ export const mockDestination = {
 
     population: 41575585,
 
-    area: 9984670,
+    area: {
+      kilometers: 9984670,
+      miles: 3855101.1,
+    },
 
-    languages: ["English", "French"],
+    languages: [
+      {
+        name: "English",
+        native_name: "English",
+      },
+      {
+        name: "French",
+        native_name: "français",
+      },
+    ],
 
     currency: {
       code: "CAD",

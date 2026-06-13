@@ -18,7 +18,10 @@
 
 .info-card-header {
   display: flex;
+  align-items: center;
   gap: 0.75rem;
+  border-bottom: var(--border);
+  padding-bottom: 0.75rem;
 }
 
 .info-card-header .info-card-label {
@@ -29,8 +32,3 @@
 .info-card-header svg {
   color: var(--clr-primary);
 }
-
-/* .info-card-container p {
-  font-size: var(--fs-sm);
-  color: var(--clr-text-muted);
-} */

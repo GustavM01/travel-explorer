@@ -3,6 +3,7 @@
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem 0.75rem;
+  height: 100%;
 }
 
 /* Weather card */
@@ -19,8 +20,8 @@
 .weather-card-top {
   display: flex;
   align-items: center;
-  width: 100%;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 1rem;
   grid-column: 1 / span 2;
   height: 100%;
   border-bottom: var(--border);
@@ -28,6 +29,7 @@
 
 .weather-card-top h2 {
   font-size: var(--fs-3xl);
+  font-weight: var(--fw-semibold);
 }
 
 .weather-card-top p {
@@ -66,4 +68,99 @@
 .weather-card-right p:nth-child(2) {
   color: var(--clr-cold);
   font-size: var(--fs-2xl);
+}
+
+/* Info card */
+
+.country-info-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.country-info-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--clr-text-secondary);
+}
+
+.country-info-text {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+.country-info-section span {
+  height: 1px;
+  width: 100%;
+  background: var(--clr-border);
+}
+
+/* Languages */
+.language-card {
+  height: 100%;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.languages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.languages p {
+  font-size: 22px;
+}
+
+.languages-bottom-text {
+  color: var(--clr-text-muted);
+}
+
+/* Travel facts */
+
+.travel-facts-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  /* padding: 0.5rem 0; */
+}
+
+.travel-facts-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.travel-facts-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.travel-facts-section svg {
+  color: var(--clr-text-secondary);
+}
+.travel-facts-text p:first-of-type {
+  color: var(--clr-text-muted);
+}
+
+.travel-fact-currensy-symbol {
+  color: var(--clr-text-secondary);
+  border: 2px solid var(--clr-text-secondary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.travel-fact-currensy-symbol p {
+  font-size: 24px;
+
+  display: grid;
+  place-items: center;
+  line-height: 33px;
 }
