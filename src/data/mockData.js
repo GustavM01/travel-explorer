@@ -132,29 +132,126 @@ export const mockDestination = {
 export const compareDestination = {
   country: {
     name: "Japan",
+    officialName: "Japan",
+
     flag: {
       emoji: "🇯🇵",
+      image: "https://flagsapi.com/JP/flat/64.png",
     },
 
     capital: "Tokyo",
 
+    region: "Asia",
+
+    subregion: "Eastern Asia",
+
     population: 123900000,
 
-    region: "Asia",
+    area: {
+      kilometers: 377975,
+      miles: 145937,
+    },
+
+    languages: [
+      {
+        name: "Japanese",
+        native_name: "日本語",
+      },
+    ],
 
     currency: {
       code: "JPY",
+      name: "Japanese Yen",
       symbol: "¥",
     },
+
+    timezone: "UTC +9",
+
+    drivingSide: "Left",
+
+    callingCode: "+81",
+
+    website: "https://www.japan.go.jp",
+
+    shortInfo:
+      "Japan is an island nation in East Asia known for its blend of ancient traditions, modern technology, world-class cuisine, and breathtaking natural landscapes.",
   },
 
   weather: {
-    temperature: 27,
-    condition: "Sunny",
+    temperature: 19,
+
+    highest: 23,
+
+    lowest: 15,
+
+    feelsLike: 18,
+
+    weatherCode: 61,
+
+    condition: "Light Rain",
+
+    humidity: 74,
+
+    windSpeed: 9,
+
+    visibility: 8,
   },
 
   travel: {
-    averageDailyBudget: 180,
-    safetyRating: 9.2,
+    bestTimeToVisit: "March - May",
+
+    averageDailyBudget: 120,
+
+    safetyRating: 9.3,
+
+    touristPopularity: "Very High",
   },
+
+  attractions: [
+    {
+      id: 1,
+      name: "Mount Fuji",
+      category: "Nature",
+    },
+
+    {
+      id: 2,
+      name: "Fushimi Inari Shrine",
+      category: "Historic",
+    },
+
+    {
+      id: 3,
+      name: "Tokyo Skytree",
+      category: "Landmark",
+    },
+
+    {
+      id: 4,
+      name: "Arashiyama Bamboo Grove",
+      category: "Nature",
+    },
+  ],
+
+  gallery: [
+    {
+      id: 1,
+      image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf",
+    },
+
+    {
+      id: 2,
+      image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186",
+    },
+
+    {
+      id: 3,
+      image: "https://images.unsplash.com/photo-1492571350019-22de08371fd3",
+    },
+
+    {
+      id: 4,
+      image: "https://images.unsplash.com/photo-1480796927426-f609979314bd",
+    },
+  ],
 };

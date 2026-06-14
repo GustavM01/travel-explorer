@@ -18,6 +18,7 @@ import {
   Map,
   Phone,
   Sun,
+  Thermometer,
   Users,
 } from "lucide-react";
 import { getWeatherIcon } from "../utils/weather";
@@ -39,7 +40,7 @@ function Home() {
       <SearchBar />
       <div className="container">
         <HeroSection destination={destination} />
-        <InfoCard icon={<Sun size={30} />} label="Weather">
+        <InfoCard icon={<Thermometer size={30} />} label="Weather">
           <div className="weather-card-container">
             <div className="weather-card-top">
               <Icon size={64} />
@@ -94,7 +95,7 @@ function Home() {
           <div className="language-card">
             <div className="languages">
               {destination.country.languages.map((language, index) => (
-                <p>{language.name}</p>
+                <p key={index}>{language.name}</p>
               ))}
             </div>
             <p className="languages-bottom-text">

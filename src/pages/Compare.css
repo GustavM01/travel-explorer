@@ -1,0 +1,73 @@
+.compare-grid {
+  height: 100%;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+  grid-template-rows: 1fr 3fr;
+  gap: 1rem;
+}
+
+.compare-first {
+  position: relative;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.compare-first::after {
+  content: "VS";
+  position: absolute;
+  height: 40px;
+  aspect-ratio: 1/1;
+  background: var(--clr-card-bg-start);
+  border: var(--border);
+  top: calc(50% - 20px);
+  right: calc(-20px - 0.5rem);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 500;
+}
+
+.compare-second {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.compare-info-section {
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 1;
+
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.25rem;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(135deg, var(--clr-card-bg-start), var(--clr-card-bg-end)),
+    linear-gradient(135deg, var(--clr-border), var(--clr-card-border));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  display: grid;
+}
+
+.compare-info-header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.compare-info-feild {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  /* text-align: center; */
+  margin-left: 3rem;
+}
+
+.compare-info-title {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.compare-weather-section {
+  display: flex;
+  gap: 0.5rem;
+}

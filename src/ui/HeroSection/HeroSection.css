@@ -50,7 +50,7 @@
 
   mask-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 0.5) 40%,
     rgba(0, 0, 0, 0) 60%
   );

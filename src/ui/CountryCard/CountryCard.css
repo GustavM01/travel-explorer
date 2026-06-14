@@ -1,5 +1,6 @@
 .country-card-container {
   position: relative;
+  height: 100%;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;

@@ -1,10 +1,10 @@
 import React from "react";
 import "./Saved.css";
-import { mockDestination } from "../data/mockData";
+import { mockDestination, compareDestination } from "../data/mockData";
 import CountryCard from "../ui/CountryCard/CountryCard";
 
 function Saved() {
-  const countries = [mockDestination];
+  const countries = [mockDestination, compareDestination];
 
   return (
     <>
