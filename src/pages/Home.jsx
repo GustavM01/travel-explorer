@@ -24,20 +24,31 @@ import {
 import { getWeatherIcon } from "../utils/weather";
 import SearchBar from "../ui/SearchBar/SearchBar";
 
+import { getImages } from "../api/imagesApi.js";
+
 function Home() {
-  const destination = mockDestination;
+  const [destination, setDestination] = useState(mockDestination);
+  const [selectedCountry, setSelectedCountry] = useState();
+
+  useEffect(() => {
+    if (selectedCountry) {
+      setDestination(selectedCountry);
+    }
+  }, [selectedCountry]);
+
+  // const destination = mockDestination;
   const Icon = getWeatherIcon(destination.weather.weatherCode);
 
   const formattedPopulation = new Intl.NumberFormat("en-US").format(
-    destination.country.population,
+    destination.population,
   );
   const formattedArea = new Intl.NumberFormat("en-US").format(
-    destination.country.area.kilometers,
+    destination.area.kilometers,
   );
 
   return (
     <>
-      <SearchBar />
+      <SearchBar setSelectedCountry={setSelectedCountry} />
       <div className="container">
         <HeroSection destination={destination} />
         <InfoCard icon={<Thermometer size={30} />} label="Weather">
@@ -65,7 +76,7 @@ function Home() {
               <Landmark size={28} />
               <div className="country-info-text">
                 <p>Capital</p>
-                {destination.country.capital}
+                {destination.capital}
               </div>
             </div>
             <div className="country-info-section">
@@ -86,7 +97,7 @@ function Home() {
               <Flag size={28} />
               <div className="country-info-text">
                 <p>Region</p>
-                {destination.country.subregion}
+                {destination.subregion}
               </div>
             </div>
           </div>
@@ -94,12 +105,12 @@ function Home() {
         <InfoCard icon={<Languages size={24} />} label="Languages">
           <div className="language-card">
             <div className="languages">
-              {destination.country.languages.map((language, index) => (
+              {destination.languages.map((language, index) => (
                 <p key={index}>{language.name}</p>
               ))}
             </div>
             <p className="languages-bottom-text">
-              {destination.country.languages.length} official languages
+              {destination.languages.length} official languages
             </p>
           </div>
         </InfoCard>
@@ -108,24 +119,23 @@ function Home() {
             <div className="travel-facts-section">
               <Car size={40} strokeWidth={1.2} />
               <div className="travel-facts-text">
-                <p>Driving side</p> <p>{destination.country.drivingSide}</p>
+                <p>Driving side</p> <p>{destination.drivingSide}</p>
               </div>
             </div>
             <div className="travel-facts-section">
               <Phone size={40} strokeWidth={1.2} />
               <div className="travel-facts-text">
-                <p>Calling code</p> <p>{destination.country.callingCode}</p>
+                <p>Calling code</p> <p>+{destination.callingCode}</p>
               </div>
             </div>
             <div className="travel-facts-section">
               <span className="travel-fact-currensy-symbol">
-                <p>{destination.country.currency.symbol}</p>
+                <p>{destination.currency.symbol}</p>
               </span>
               <div className="travel-facts-text">
                 <p>Currency</p>{" "}
                 <p>
-                  {destination.country.currency.code} (
-                  {destination.country.currency.name})
+                  {destination.currency.code} ({destination.currency.name})
                 </p>
               </div>
             </div>

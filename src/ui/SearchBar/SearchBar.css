@@ -1,3 +1,7 @@
+.search-section {
+  position: relative;
+}
+
 .search-container {
   display: flex;
   align-items: center;
@@ -11,6 +15,7 @@
     linear-gradient(180deg, var(--clr-border), var(--clr-card-border));
   background-origin: border-box;
   background-clip: padding-box, border-box;
+  cursor: text;
 }
 
 .search-container svg {
@@ -29,4 +34,16 @@
 
 .search-container input:focus {
   outline: none;
+}
+
+.search-list {
+  position: absolute;
+  top: 120%;
+  width: 100%;
+  z-index: 20;
+}
+
+.search-item {
+  background: gray;
+  padding: 0.5rem 1rem;
 }

@@ -1,54 +1,62 @@
 export const mockDestination = {
-  country: {
-    name: "Canada",
-    officialName: "Canada",
+  name: "Canada",
+  officialName: "Canada",
 
-    flag: {
-      emoji: "🇨🇦",
-      image: "https://flagsapi.com/CA/flat/64.png",
-    },
-
-    capital: "Ottawa",
-
-    region: "Americas",
-
-    subregion: "North America",
-
-    population: 41575585,
-
-    area: {
-      kilometers: 9984670,
-      miles: 3855101.1,
-    },
-
-    languages: [
-      {
-        name: "English",
-        native_name: "English",
-      },
-      {
-        name: "French",
-        native_name: "français",
-      },
-    ],
-
-    currency: {
-      code: "CAD",
-      name: "Canadian Dollar",
-      symbol: "$",
-    },
-
-    timezone: "UTC -5",
-
-    drivingSide: "Right",
-
-    callingCode: "+1",
-
-    website: "https://www.canada.ca",
-
-    shortInfo:
-      "Canada is the second-largest country in the world by area, located in North America and stretching from the Atlantic to the Pacific and Arctic oceans.",
+  flag: {
+    emoji: "🇨🇦",
+    image: "https://flagsapi.com/CA/flat/64.png",
   },
+
+  capital: "Ottawa",
+
+  region: "Americas",
+
+  subregion: "North America",
+
+  population: 41575585,
+
+  area: {
+    kilometers: 9984670,
+    miles: 3855101.1,
+  },
+
+  languages: [
+    {
+      name: "English",
+      native_name: "English",
+    },
+    {
+      name: "French",
+      native_name: "français",
+    },
+  ],
+
+  codes: {
+    alpha_2: "CA",
+    alpha_3: "CAN",
+    ccn3: "124",
+    cioc: "CAN",
+    fifa: "CAN",
+    fips: "CA",
+    gec: "CA",
+  },
+
+  currency: {
+    code: "CAD",
+    name: "Canadian Dollar",
+    symbol: "$",
+  },
+
+  timezone: "UTC -5",
+
+  drivingSide: "Right",
+
+  callingCode: "1",
+
+  website: "https://www.canada.ca",
+
+  shortInfo:
+    "Canada is the second-largest country in the world by area, located in North America and stretching from the Atlantic to the Pacific and Arctic oceans.",
 
   weather: {
     temperature: 21,
@@ -130,52 +138,55 @@ export const mockDestination = {
 };
 
 export const compareDestination = {
-  country: {
-    name: "Japan",
-    officialName: "Japan",
+  name: "Japan",
+  officialName: "Japan",
 
-    flag: {
-      emoji: "🇯🇵",
-      image: "https://flagsapi.com/JP/flat/64.png",
-    },
-
-    capital: "Tokyo",
-
-    region: "Asia",
-
-    subregion: "Eastern Asia",
-
-    population: 123900000,
-
-    area: {
-      kilometers: 377975,
-      miles: 145937,
-    },
-
-    languages: [
-      {
-        name: "Japanese",
-        native_name: "日本語",
-      },
-    ],
-
-    currency: {
-      code: "JPY",
-      name: "Japanese Yen",
-      symbol: "¥",
-    },
-
-    timezone: "UTC +9",
-
-    drivingSide: "Left",
-
-    callingCode: "+81",
-
-    website: "https://www.japan.go.jp",
-
-    shortInfo:
-      "Japan is an island nation in East Asia known for its blend of ancient traditions, modern technology, world-class cuisine, and breathtaking natural landscapes.",
+  flag: {
+    emoji: "🇯🇵",
+    image: "https://flagsapi.com/JP/flat/64.png",
   },
+
+  capital: "Tokyo",
+
+  region: "Asia",
+
+  subregion: "Eastern Asia",
+
+  population: 123900000,
+
+  area: {
+    kilometers: 377975,
+    miles: 145937,
+  },
+
+  languages: [
+    {
+      name: "Japanese",
+      native_name: "日本語",
+    },
+  ],
+
+  codes: {
+    alpha_2: "JP",
+    alpha_3: "JPN",
+  },
+
+  currency: {
+    code: "JPY",
+    name: "Japanese Yen",
+    symbol: "¥",
+  },
+
+  timezone: "UTC +9",
+
+  drivingSide: "Left",
+
+  callingCode: "81",
+
+  website: "https://www.japan.go.jp",
+
+  shortInfo:
+    "Japan is an island nation in East Asia known for its blend of ancient traditions, modern technology, world-class cuisine, and breathtaking natural landscapes.",
 
   weather: {
     temperature: 19,

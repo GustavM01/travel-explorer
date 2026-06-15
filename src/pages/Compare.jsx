@@ -25,17 +25,17 @@ function Compare() {
   const IconTwo = getWeatherIcon(countryTwo.weather.weatherCode);
 
   const formattedPopulationOne = new Intl.NumberFormat("en-US").format(
-    countryOne.country.population,
+    countryOne.population,
   );
   const formattedAreaOne = new Intl.NumberFormat("en-US").format(
-    countryOne.country.area.kilometers,
+    countryOne.area.kilometers,
   );
 
   const formattedPopulationTwo = new Intl.NumberFormat("en-US").format(
-    countryTwo.country.population,
+    countryTwo.population,
   );
   const formattedAreaTwo = new Intl.NumberFormat("en-US").format(
-    countryTwo.country.area.kilometers,
+    countryTwo.area.kilometers,
   );
   return (
     <>
@@ -51,20 +51,20 @@ function Compare() {
           {/* <div className="compare-info-header">
             <div>
               <img src={countryOne.country.flag.image} alt="" />
-              <p>{countryOne.country.name}</p>
+              <p>{countryOne.name}</p>
             </div>
             <div>
               <img src={countryTwo.country.flag.image} alt="" />
-              <p>{countryTwo.country.name}</p>
+              <p>{countryTwo.name}</p>
             </div>
           </div> */}
 
           <div className="compare-info-feild">
-            <p>{countryOne.country.capital}</p>
+            <p>{countryOne.capital}</p>
             <p className="compare-info-title">
               <Landmark /> Capital
             </p>
-            <p>{countryTwo.country.capital}</p>
+            <p>{countryTwo.capital}</p>
           </div>
 
           <div className="compare-info-feild">
@@ -84,11 +84,11 @@ function Compare() {
           </div>
 
           <div className="compare-info-feild">
-            <p>{countryOne.country.region}</p>
+            <p>{countryOne.subregion}</p>
             <p className="compare-info-title">
               <Flag /> Region
             </p>
-            <p>{countryTwo.country.region}</p>
+            <p>{countryTwo.subregion}</p>
           </div>
 
           <div className="compare-info-feild">
@@ -109,47 +109,41 @@ function Compare() {
 
           <div className="compare-info-feild">
             <p>
-              {countryOne.country.currency.code} (
-              {countryOne.country.currency.name})
+              {countryOne.currency.code} ({countryOne.currency.name})
             </p>
             <p className="compare-info-title">
               <Banknote /> Currenecy
             </p>
             <p>
-              {countryTwo.country.currency.code} (
-              {countryTwo.country.currency.name})
+              {countryTwo.currency.code} ({countryTwo.currency.name})
             </p>
           </div>
 
           <div className="compare-info-feild">
-            <p>{countryOne.country.drivingSide}</p>
+            <p>{countryOne.drivingSide}</p>
             <p className="compare-info-title">
               <Car /> Driving side
             </p>
-            <p>{countryTwo.country.drivingSide}</p>
+            <p>{countryTwo.drivingSide}</p>
           </div>
 
           <div className="compare-info-feild">
-            <p>{countryOne.country.callingCode}</p>
+            <p>+{countryOne.callingCode}</p>
             <p className="compare-info-title">
               <Phone /> Calling code
             </p>
-            <p>{countryTwo.country.callingCode}</p>
+            <p>+{countryTwo.callingCode}</p>
           </div>
 
           <div className="compare-info-feild">
             <p>
-              {countryOne.country.languages
-                .map((language) => language.name)
-                .join(", ")}
+              {countryOne.languages.map((language) => language.name).join(", ")}
             </p>
             <p className="compare-info-title">
               <Languages /> Language
             </p>
             <p>
-              {countryTwo.country.languages
-                .map((language) => language.name)
-                .join(", ")}
+              {countryTwo.languages.map((language) => language.name).join(", ")}
             </p>
           </div>
         </div>

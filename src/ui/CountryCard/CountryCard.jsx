@@ -15,16 +15,12 @@ function CountryCard({ country }) {
       </div>
       <div>
         <div className="country-card-section">
-          <img
-            className="country-card-flag"
-            src={country.country.flag.image}
-            alt=""
-          />
-          <p>{country.country.name}</p>
+          <img className="country-card-flag" src={country.flag.image} alt="" />
+          <p>{country.name}</p>
         </div>
         <div className="country-card-capital-section">
           <MapPin size={16} />
-          <p>{country.country.capital}</p>
+          <p>{country.capital}</p>
         </div>
       </div>
     </div>
