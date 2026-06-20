@@ -41,9 +41,30 @@
   top: 120%;
   width: 100%;
   z-index: 20;
+  border-radius: var(--radius-md);
+  background: var(--clr-surface);
+  border: var(--border);
+  overflow: hidden;
 }
 
 .search-item {
-  background: gray;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: var(--border);
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background: var(--clr-surface-hover);
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.search-item img {
+  height: 30px;
+  object-fit: cover;
 }

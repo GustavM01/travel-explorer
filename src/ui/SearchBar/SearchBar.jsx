@@ -83,17 +83,20 @@ function SearchBar({ setSelectedCountry }) {
           id="search-bar"
         />
       </label>
-      <div className="search-list">
-        {countries.map((country, index) => (
-          <div
-            key={index}
-            onClick={() => handleSelect(country)}
-            className="search-item"
-          >
-            <p>{country.name}</p>
-          </div>
-        ))}
-      </div>
+      {countries.length != 0 && (
+        <div className="search-list">
+          {countries.map((country, index) => (
+            <div
+              key={index}
+              onClick={() => handleSelect(country)}
+              className="search-item"
+            >
+              <img src={country.flag.image} alt="" />
+              <p>{country.name}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HeroSection.css";
 import { ArrowRight, MapPin } from "lucide-react";
 import Button from "../Button/Button";
 function HeroSection({ destination }) {
+  const [isFeatured, setIsFeatured] = useState(true);
   return (
     <div className="hero-card-container">
       <img
@@ -10,7 +11,12 @@ function HeroSection({ destination }) {
         src={destination.gallery?.[0]?.image}
         alt=""
       />
-      <p className="hero-card-featured-text">FEATURED DESTINATION</p>
+      <p
+        style={{ visibility: isFeatured ? "visible" : "hidden" }}
+        className="hero-card-featured-text"
+      >
+        FEATURED DESTINATION
+      </p>
       <div className="hero-card-content">
         <div>
           <div className="hero-card-coutry-section">
