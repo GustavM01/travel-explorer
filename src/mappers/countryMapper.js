@@ -67,17 +67,15 @@ export const mapCountry = (country) => {
 
     //  FAKE WEATHER DATA
     weather: {
-      temperature: randomInt(12, 30),
-      highest: randomInt(18, 35),
-      lowest: randomInt(5, 18),
-      feelsLike: randomInt(10, 28),
-
-      weatherCode: randomWeatherCode(),
-      condition: randomWeatherCondition(),
-
-      humidity: randomInt(40, 90),
-      windSpeed: randomInt(2, 25),
-      visibility: randomInt(5, 20),
+      // temperature: randomInt(12, 30),
+      // highest: randomInt(18, 35),
+      // lowest: randomInt(5, 18),
+      // feelsLike: randomInt(10, 28),
+      // weatherCode: randomWeatherCode(),
+      // condition: randomWeatherCondition(),
+      // humidity: randomInt(40, 90),
+      // windSpeed: randomInt(2, 25),
+      // visibility: randomInt(5, 20),
     },
 
     gallery: [],

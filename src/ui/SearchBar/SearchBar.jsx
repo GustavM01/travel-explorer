@@ -6,14 +6,9 @@ import { searchCountries } from "../../api/countriesApi";
 import { getImages } from "../../api/imagesApi.js";
 import { mapCountry } from "../../mappers/countryMapper.js";
 
-function SearchBar({ setSelectedCountry }) {
+function SearchBar({ setDestination }) {
   const [query, setQuery] = useState("");
   const [countries, setCountries] = useState([]);
-
-  // useEffect(() => {
-  //   // Bara för mock data
-  //   setCountries([mockDestination, compareDestination]);
-  // }, []);
 
   useEffect(() => {
     if (query.length < 3) {
@@ -43,7 +38,7 @@ function SearchBar({ setSelectedCountry }) {
   };
 
   const handleSelect = async (country) => {
-    setSelectedCountry({
+    setDestination({
       ...country,
       gallery: [],
       isLoadingImages: true,
@@ -52,7 +47,7 @@ function SearchBar({ setSelectedCountry }) {
     try {
       const photos = await getImages(country.name);
 
-      setSelectedCountry((prev) => ({
+      setDestination((prev) => ({
         ...prev,
         gallery: photos.map((photo) => ({
           id: photo.id,
@@ -63,7 +58,7 @@ function SearchBar({ setSelectedCountry }) {
     } catch (error) {
       console.error(error);
 
-      setSelectedCountry((prev) => ({
+      setDestination((prev) => ({
         ...prev,
         isLoadingImages: false,
       }));

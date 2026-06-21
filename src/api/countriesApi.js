@@ -5,8 +5,6 @@ export async function searchCountries(query) {
   });
 
   if (!response.ok) {
-    console.log(response.status);
-    console.log(await response.text());
     throw new Error("Failed to fetch country");
   }
 

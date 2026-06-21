@@ -25,19 +25,36 @@ import { getWeatherIcon } from "../utils/weather";
 import SearchBar from "../ui/SearchBar/SearchBar";
 
 import { getImages } from "../api/imagesApi.js";
+import { getWeather } from "../api/weatherApi.js";
 
 function Home() {
   const [destination, setDestination] = useState(mockDestination);
-  const [selectedCountry, setSelectedCountry] = useState();
 
   useEffect(() => {
-    if (selectedCountry) {
-      setDestination(selectedCountry);
-    }
-  }, [selectedCountry]);
+    getWeatherInfo();
+  }, [destination.capital]);
 
   // const destination = mockDestination;
   const Icon = getWeatherIcon(destination.weather.weatherCode);
+
+  const getWeatherInfo = async () => {
+    try {
+      const result = await getWeather(destination.capital);
+
+      setDestination((prev) => ({
+        ...prev,
+        weather: {
+          temperature: result.current.temp_c,
+          highest: result.forecast.forecastday[0].day.maxtemp_c,
+          lowest: result.forecast.forecastday[0].day.mintemp_c,
+          condition: result.current.condition.text,
+          weatherCode: result.current.condition.code,
+        },
+      }));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const formattedPopulation = new Intl.NumberFormat("en-US").format(
     destination.population,
@@ -48,7 +65,8 @@ function Home() {
 
   return (
     <>
-      <SearchBar setSelectedCountry={setSelectedCountry} />
+      <SearchBar setDestination={setDestination} />
+      <Button onClick={getWeatherInfo}>Weather</Button>
       <div className="container">
         <HeroSection destination={destination} />
         <InfoCard icon={<Thermometer size={30} />} label="Weather">
