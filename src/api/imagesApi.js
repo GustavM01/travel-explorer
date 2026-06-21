@@ -1,5 +1,5 @@
 export async function getImages(query) {
-  const url = `https://api.pexels.com/v1/search?query=${query}&orientation=landscape&per_page=4`;
+  const url = `https://api.pexels.com/v1/search?query=${query}%20nature%204k&orientation=landscape&per_page=4`;
   const response = await fetch(url, {
     headers: { Authorization: `${import.meta.env.VITE_PEXELS_PK}` },
   });

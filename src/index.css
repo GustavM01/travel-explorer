@@ -101,7 +101,7 @@ p {
   --border: 1px solid var(--clr-border);
 
   --clr-card-border: hsl(220 30% 100% / 0.08);
-  --card-border: 1px solid var(var(--clr-card-border));
+  --card-border: 1px solid var(--clr-card-border);
 
   /* Font */
 

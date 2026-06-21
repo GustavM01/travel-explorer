@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { createElement, useEffect, useState } from "react";
 import Button from "../ui/Button/Button";
 import { mockDestination } from "../data/mockData";
 
@@ -6,55 +6,59 @@ import "./Home.css";
 import HeroSection from "../ui/HeroSection/HeroSection";
 import InfoCard from "../ui/InfoCard/InfoCard";
 import {
-  Banknote,
   Briefcase,
-  Calendar,
   Car,
-  Clock,
   Flag,
   Globe2,
   Landmark,
   Languages,
   Map,
   Phone,
-  Sun,
   Thermometer,
   Users,
 } from "lucide-react";
 import { getWeatherIcon } from "../utils/weather";
 import SearchBar from "../ui/SearchBar/SearchBar";
+import {
+  getFeaturedDestination,
+  saveFeaturedDestination,
+} from "../utils/featuredDestinationStorage.js";
+import {
+  getCountryByName,
+  getCountryWithDetails,
+} from "../services/countryService.js";
 
-import { getImages } from "../api/imagesApi.js";
-import { getWeather } from "../api/weatherApi.js";
+const FEATURED_COUNTRY_NAME = "Canada";
 
 function Home() {
   const [destination, setDestination] = useState(mockDestination);
 
   useEffect(() => {
-    getWeatherInfo();
-  }, [destination.capital]);
+    const loadFeaturedDestination = async () => {
+      try {
+        const featuredDestination = getFeaturedDestination();
+
+        if (featuredDestination) {
+          setDestination(featuredDestination);
+          return;
+        }
+
+        const country = await getCountryByName(FEATURED_COUNTRY_NAME);
+
+        if (!country) return;
+
+        setDestination(country);
+        saveFeaturedDestination(country);
+      } catch (error) {
+        console.error("Fetching error:", error);
+      }
+    };
+
+    loadFeaturedDestination();
+  }, []);
 
   // const destination = mockDestination;
-  const Icon = getWeatherIcon(destination.weather.weatherCode);
-
-  const getWeatherInfo = async () => {
-    try {
-      const result = await getWeather(destination.capital);
-
-      setDestination((prev) => ({
-        ...prev,
-        weather: {
-          temperature: result.current.temp_c,
-          highest: result.forecast.forecastday[0].day.maxtemp_c,
-          lowest: result.forecast.forecastday[0].day.mintemp_c,
-          condition: result.current.condition.text,
-          weatherCode: result.current.condition.code,
-        },
-      }));
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const weatherIcon = getWeatherIcon(destination.weather.weatherCode);
 
   const formattedPopulation = new Intl.NumberFormat("en-US").format(
     destination.population,
@@ -66,13 +70,12 @@ function Home() {
   return (
     <>
       <SearchBar setDestination={setDestination} />
-      <Button onClick={getWeatherInfo}>Weather</Button>
       <div className="container">
         <HeroSection destination={destination} />
         <InfoCard icon={<Thermometer size={30} />} label="Weather">
           <div className="weather-card-container">
             <div className="weather-card-top">
-              <Icon size={64} />
+              {createElement(weatherIcon, { size: 64 })}
               <div>
                 <h2>{destination.weather.temperature}°C</h2>
                 <p>{destination.weather.condition}</p>

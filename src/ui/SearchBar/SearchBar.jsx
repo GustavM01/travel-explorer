@@ -1,18 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./SearchBar.css";
 import { Search } from "lucide-react";
-import { mockDestination, compareDestination } from "../../data/mockData";
-import { searchCountries } from "../../api/countriesApi";
-import { getImages } from "../../api/imagesApi.js";
-import { mapCountry } from "../../mappers/countryMapper.js";
+import {
+  getCountryWithDetails,
+  searchDestinations,
+} from "../../services/countryService.js";
 
 function SearchBar({ setDestination }) {
   const [query, setQuery] = useState("");
   const [countries, setCountries] = useState([]);
 
+  async function handleSearch(query) {
+    try {
+      const countries = await searchDestinations(query);
+      setCountries(countries);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     if (query.length < 3) {
-      setCountries([]);
       return;
     }
 
@@ -23,20 +31,6 @@ function SearchBar({ setDestination }) {
     return () => clearTimeout(timer);
   }, [query]);
 
-  const handleSearch = async (query) => {
-    try {
-      const result = await searchCountries(query);
-
-      const countriesArray = result?.data?.objects || [];
-
-      const mappedCountries = countriesArray.map(mapCountry);
-
-      setCountries(mappedCountries);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const handleSelect = async (country) => {
     setDestination({
       ...country,
@@ -45,16 +39,12 @@ function SearchBar({ setDestination }) {
     });
 
     try {
-      const photos = await getImages(country.name);
+      const countryWithDetails = await getCountryWithDetails(country);
 
-      setDestination((prev) => ({
-        ...prev,
-        gallery: photos.map((photo) => ({
-          id: photo.id,
-          image: photo.src.large,
-        })),
+      setDestination({
+        ...countryWithDetails,
         isLoadingImages: false,
-      }));
+      });
     } catch (error) {
       console.error(error);
 
@@ -64,6 +54,7 @@ function SearchBar({ setDestination }) {
       }));
     }
     setQuery("");
+    setCountries([]);
   };
 
   return (
@@ -72,7 +63,13 @@ function SearchBar({ setDestination }) {
         <Search size={20} />
         <input
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            setQuery(e.target.value);
+
+            if (e.target.value.length < 3) {
+              setCountries([]);
+            }
+          }}
           placeholder="Search for a country"
           type="text"
           id="search-bar"

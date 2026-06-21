@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HeroSection.css";
 import { ArrowRight, MapPin } from "lucide-react";
 import Button from "../Button/Button";
 function HeroSection({ destination }) {
   const [isFeatured, setIsFeatured] = useState(true);
+
+  useEffect(() => {
+    if (destination.name === "Canada") {
+      setIsFeatured(true);
+    } else {
+      setIsFeatured(false);
+    }
+  }, []);
+
   return (
     <div className="hero-card-container">
       <img
