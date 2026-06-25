@@ -27,11 +27,13 @@ import {
   getCountryByName,
   getCountryWithDetails,
 } from "../services/countryService.js";
+import { useLocation } from "react-router";
 
 const FEATURED_COUNTRY_NAME = "Canada";
 
 function Home() {
   const [destination, setDestination] = useState(mockDestination);
+  const location = useLocation();
 
   useEffect(() => {
     const loadFeaturedDestination = async () => {
@@ -54,7 +56,12 @@ function Home() {
       }
     };
 
-    loadFeaturedDestination();
+    const selectedDestination = location.state?.destination;
+    if (selectedDestination) {
+      setDestination(selectedDestination);
+    } else {
+      loadFeaturedDestination();
+    }
   }, []);
 
   // const destination = mockDestination;

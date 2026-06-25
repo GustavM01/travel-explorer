@@ -26,6 +26,7 @@
   place-items: center;
   border-radius: 50%;
   font-weight: 500;
+  z-index: 1000;
 }
 
 .compare-second {

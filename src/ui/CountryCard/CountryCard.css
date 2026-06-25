@@ -7,6 +7,12 @@
   padding: 0.75rem;
   border-radius: var(--radius-md);
   overflow: hidden;
+  cursor: pointer;
+  transition: scale 0.2s ease;
+}
+
+.country-card-container:hover {
+  scale: 1.02;
 }
 
 .country-card-container::after {
@@ -28,6 +34,7 @@
 }
 
 .country-card-trashcan {
+  color: var(--clr-text-primary);
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -38,7 +45,7 @@
 }
 
 .country-card-trashcan:hover {
-  background: hsl(from var(--clr-card) h s l / 0.9);
+  background: hsl(from var(--clr-card) h s l / 1);
 }
 
 .country-card-section {
@@ -46,6 +53,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 20px;
+  margin-bottom: 0.25rem;
 }
 
 .country-card-flag {

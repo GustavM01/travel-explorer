@@ -42,10 +42,10 @@ function Compare() {
       <h2>Compare destinations</h2>
       <div className="compare-grid">
         <div className="compare-first">
-          <CountryCard country={countryOne} />
+          <CountryCard showRemoveBtn={false} country={countryOne} />
         </div>
         <div className="compare-second">
-          <CountryCard country={countryTwo} />
+          <CountryCard showRemoveBtn={false} country={countryTwo} />
         </div>
         <div className="compare-info-section">
           {/* <div className="compare-info-header">

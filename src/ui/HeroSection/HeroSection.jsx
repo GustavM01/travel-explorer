@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./HeroSection.css";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, Heart, MapPin } from "lucide-react";
 import Button from "../Button/Button";
+import {
+  getSavedDestinations,
+  removeSavedDestinaion,
+  saveDestination,
+} from "../../utils/cache";
 function HeroSection({ destination }) {
   const [isFeatured, setIsFeatured] = useState(true);
+  const [isSaved, setIsSaved] = useState(
+    getSavedDestinations().some(
+      (savedDestination) => savedDestination.name === destination.name,
+    ),
+  );
 
   useEffect(() => {
     if (destination.name === "Canada") {
@@ -11,7 +21,7 @@ function HeroSection({ destination }) {
     } else {
       setIsFeatured(false);
     }
-  }, []);
+  }, [destination]);
 
   return (
     <div className="hero-card-container">
@@ -42,9 +52,26 @@ function HeroSection({ destination }) {
           </div>
         </div>
         <p className="hero-card-info">{destination.shortInfo}</p>
-        <Button>
-          Explore {destination.name} <ArrowRight size={22} />
-        </Button>
+        {isSaved ? (
+          <Button
+            onClick={() => {
+              removeSavedDestinaion(destination);
+              setIsSaved(false);
+            }}
+          >
+            <Heart fill="tomato" style={{ color: "tomato" }} size={22} /> Remove
+            destination
+          </Button>
+        ) : (
+          <Button
+            onClick={() => {
+              saveDestination(destination);
+              setIsSaved(true);
+            }}
+          >
+            <Heart size={22} /> Save destination
+          </Button>
+        )}
       </div>
     </div>
   );
