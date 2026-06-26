@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export function saveDestination(destination) {
   try {
     let data = JSON.parse(localStorage.getItem("Saved"));

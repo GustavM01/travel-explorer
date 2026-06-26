@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Saved.css";
-import { mockDestination, compareDestination } from "../data/mockData";
 import CountryCard from "../ui/CountryCard/CountryCard";
 import { getSavedDestinations, removeSavedDestinaion } from "../utils/cache";
 import { useNavigate } from "react-router";

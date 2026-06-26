@@ -1,4 +1,3 @@
-import React from "react";
 import "./SideNav.css";
 import { Link, NavLink } from "react-router";
 import { Heart, MountainSnow, Scale, Search } from "lucide-react";

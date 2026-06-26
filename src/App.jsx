@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import "./App.css";
 import Home from "./pages/Home";
 import SideNav from "./ui/SideNav/SideNav";
@@ -7,10 +6,8 @@ import Saved from "./pages/Saved";
 import Compare from "./pages/Compare";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="layout">
         <SideNav />
         <main>
@@ -21,7 +18,7 @@ function App() {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

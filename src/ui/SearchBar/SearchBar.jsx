@@ -6,7 +6,7 @@ import {
   searchDestinations,
 } from "../../services/countryService.js";
 
-function SearchBar({ setDestination }) {
+function SearchBar({ setDestination, className, label }) {
   const [query, setQuery] = useState("");
   const [countries, setCountries] = useState([]);
 
@@ -58,8 +58,8 @@ function SearchBar({ setDestination }) {
   };
 
   return (
-    <div className="search-section">
-      <label htmlFor="search-bar" className="search-container">
+    <div className={`search-section ${className}`}>
+      <label htmlFor={label} className="search-container">
         <Search size={20} />
         <input
           value={query}
@@ -72,7 +72,7 @@ function SearchBar({ setDestination }) {
           }}
           placeholder="Search for a country"
           type="text"
-          id="search-bar"
+          id={label}
         />
       </label>
       {countries.length != 0 && (

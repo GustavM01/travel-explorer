@@ -1,5 +1,4 @@
 import { createElement, useEffect, useState } from "react";
-import Button from "../ui/Button/Button";
 import { mockDestination } from "../data/mockData";
 
 import "./Home.css";
@@ -23,10 +22,7 @@ import {
   getFeaturedDestination,
   saveFeaturedDestination,
 } from "../utils/featuredDestinationStorage.js";
-import {
-  getCountryByName,
-  getCountryWithDetails,
-} from "../services/countryService.js";
+import { getCountryByName } from "../services/countryService.js";
 import { useLocation } from "react-router";
 
 const FEATURED_COUNTRY_NAME = "Canada";
@@ -76,7 +72,7 @@ function Home() {
 
   return (
     <>
-      <SearchBar setDestination={setDestination} />
+      <SearchBar label={"searchbar"} setDestination={setDestination} />
       <div className="container">
         <HeroSection destination={destination} />
         <InfoCard icon={<Thermometer size={30} />} label="Weather">

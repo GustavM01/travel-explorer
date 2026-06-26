@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./HeroSection.css";
-import { ArrowRight, Heart, MapPin } from "lucide-react";
+import { Heart, MapPin } from "lucide-react";
 import Button from "../Button/Button";
 import {
   getSavedDestinations,
@@ -16,6 +16,12 @@ function HeroSection({ destination }) {
   );
 
   useEffect(() => {
+    setIsSaved(
+      getSavedDestinations().some(
+        (savedDestination) => savedDestination.name === destination.name,
+      ),
+    );
+
     if (destination.name === "Canada") {
       setIsFeatured(true);
     } else {

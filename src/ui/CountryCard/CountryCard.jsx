@@ -1,7 +1,6 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./CountryCard.css";
 import { MapPin, Trash2 } from "lucide-react";
-import { removeSavedDestinaion } from "../../utils/cache";
 
 function CountryCard({
   country,
@@ -9,13 +8,29 @@ function CountryCard({
   onClick,
   showRemoveBtn = true,
 }) {
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    try {
+      if (country) {
+        setImage(country.gallery[0].image);
+      }
+    } catch {}
+  }, [country]);
+
+  if (!country)
+    return (
+      <div className="placeholder">
+        <div className="country-card-bg-img" />
+      </div>
+    );
   return (
     <div onClick={onClick} className="country-card-container">
-      <img
-        src={country.gallery[0].image}
-        alt=""
-        className="country-card-bg-img"
-      />
+      {image ? (
+        <img src={image} alt="" className="country-card-bg-img" />
+      ) : (
+        <div></div>
+      )}
       {showRemoveBtn && (
         <button
           onClick={(e) => {

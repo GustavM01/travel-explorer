@@ -1,20 +1,3 @@
-const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
-
-const randomWeatherCondition = () => {
-  const conditions = [
-    "Sunny",
-    "Partly Cloudy",
-    "Cloudy",
-    "Light Rain",
-    "Stormy",
-    "Snowy",
-  ];
-  return conditions[Math.floor(Math.random() * conditions.length)];
-};
-
-const randomWeatherCode = () => randomInt(0, 100);
-
 export const mapCountry = (country) => {
   return {
     name: country?.names?.common,
@@ -65,18 +48,7 @@ export const mapCountry = (country) => {
       country?.names?.official ||
       `${name} is a beautiful country worth exploring.`,
 
-    //  FAKE WEATHER DATA
-    weather: {
-      // temperature: randomInt(12, 30),
-      // highest: randomInt(18, 35),
-      // lowest: randomInt(5, 18),
-      // feelsLike: randomInt(10, 28),
-      // weatherCode: randomWeatherCode(),
-      // condition: randomWeatherCondition(),
-      // humidity: randomInt(40, 90),
-      // windSpeed: randomInt(2, 25),
-      // visibility: randomInt(5, 20),
-    },
+    weather: {},
 
     gallery: [],
   };
